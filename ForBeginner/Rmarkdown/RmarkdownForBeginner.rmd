@@ -1,0 +1,63 @@
+---
+title: "ForBeginner"
+author: "Youhuang Bai"
+date: "5/31/2019"
+output: 
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+# 1 Installation with R studio, R 3.6.0
+
+Go directly to the offical websites of [R](https://cran.r-project.org/) and [R studio](https://www.rstudio.com/) and download latest version of each tools for your OS.
+
+## 1.1 installation of some useful packages.
+
+```{r packages}
+ipak <- function(pkg){
+new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+if (length(new.pkg))
+install.packages(new.pkg, dependencies = TRUE)
+}
+packages <- c("ggplot2", "dplyr", "reshape2", "RColorBrewer", "scales", "grid", "tidyr", "stringr", "rmarkdown", "xtable", "data.table", "parallel", "devtools", "kableExtra")
+ipak(packages)
+```
+
+## 1.2 installation of packages need for markdown to pdf.
+
+This step is not nessessary if you don;t use markdown or not wanna to convert it to pdf.
+
+1) download [pandoc](https://code.google.com/archive/p/pandoc/downloads) and install it
+
+2) install tinytex package for windows user, see [instrution](https://community.rstudio.com/t/knit-as-pdf-not-work/15622/6)
+
+```{r packages_letex}
+ipak('tinytex')
+tinytex::install_tinytex()
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
