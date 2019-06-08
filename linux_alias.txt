@@ -1,0 +1,2 @@
+alias wcp='parallel --pipe wc -l | awk "{s+=\$1} END {print s}"'
+alias sed_head='sed -n "/^[^#]/q;p"'
